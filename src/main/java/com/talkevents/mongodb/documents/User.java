@@ -1,5 +1,6 @@
 package com.talkevents.mongodb.documents;
 
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
@@ -9,6 +10,8 @@ public class User {
     private String id;
     private String name;
     private int age;
+    @DBRef
+    private Address address;
 
     public String getId() {
         return id;
@@ -32,5 +35,13 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }
